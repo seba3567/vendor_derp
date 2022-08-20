@@ -2,7 +2,6 @@
 PRODUCT_PACKAGES += \
     DerpSetupWizard \
     Flipendo \
-    GameSpace \
     GrapheneCamera \
     NetworkStackOverlay \
     Updater
@@ -12,12 +11,6 @@ PRODUCT_PACKAGES += \
     DerpThemesStub \
     DerpWalls \
     ThemePicker
-
-# Udfps
-ifeq ($(EXTRA_UDFPS_ANIMATIONS),true)
-PRODUCT_PACKAGES += \
-    UdfpsResources
-endif
 
 # Config
 PRODUCT_PACKAGES += \

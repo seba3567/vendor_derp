@@ -68,12 +68,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.control_privapp_permissions=enforce
 
-# Quick Tap
-ifeq ($(TARGET_SUPPORTS_QUICK_TAP), true)
-PRODUCT_COPY_FILES += \
-    vendor/derp/prebuilt/common/etc/sysconfig/quick_tap.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/quick_tap.xml
-endif
-
 # Include AOSP audio files
 include vendor/derp/config/aosp_audio.mk
 
@@ -106,16 +100,6 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.iorapd.enable=false
 
-# Blur properties
-TARGET_USES_BLUR ?= false
-ifeq ($(TARGET_USES_BLUR), true)
-PRODUCT_PACKAGES += \
-    AndroidSystemBlur
-PRODUCT_SYSTEM_EXT_PROPERTIES += \
-    ro.sf.blurs_are_expensive=1 \
-    ro.surface_flinger.supports_background_blur=1
-endif
-
 PRODUCT_COPY_FILES += \
     vendor/derp/prebuilt/common/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
 
@@ -137,17 +121,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     vendor/derp/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
-
-# Face Unlock
-TARGET_FACE_UNLOCK_SUPPORTED ?= true
-ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
-PRODUCT_PACKAGES += \
-    FaceUnlockService
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
-endif
 
 # Storage manager
 PRODUCT_SYSTEM_PROPERTIES += \
