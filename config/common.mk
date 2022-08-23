@@ -64,9 +64,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:$(TARGET_COPY_OUT_PRODUCT)/usr/keylayout/Vendor_045e_Product_0719.kl
 
-# Enforce privapp-permissions whitelist
+# Log privapp-permissions whitelist
 PRODUCT_SYSTEM_PROPERTIES += \
-    ro.control_privapp_permissions=enforce
+    ro.control_privapp_permissions=log
 
 # Include AOSP audio files
 include vendor/derp/config/aosp_audio.mk
